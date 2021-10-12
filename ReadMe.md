@@ -66,7 +66,7 @@ Features
 Tags
 ![](../../Desktop/Tags.png)
 Steps
-<img src="../../Desktop/Steps.png"/>
+![](../../Desktop/Steps.png)
 Failures
 ![](../../Desktop/Failures.png)
 
