@@ -8,6 +8,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Top250StepDef {
 
@@ -20,7 +22,7 @@ public class Top250StepDef {
         String expectedTitle = "IMDb: Ratings, Reviews, and Where to Watch the Best Movies & TV Shows";
         String actualTitle = Driver.get().getTitle();
 
-        Assert.assertEquals(expectedTitle,actualTitle);
+        Assert.assertEquals("verify that the user is one the expected page",expectedTitle,actualTitle);
     }
 
     @When("the user clicks the Menu")
@@ -30,7 +32,8 @@ public class Top250StepDef {
 
     @When("the user clicks the {string}")
     public void the_user_clicks_the(String string) {
-        BrowserUtils.waitFor(2);
+        //BrowserUtils.waitFor(2);
+        new WebDriverWait(Driver.get(),5).until(ExpectedConditions.elementToBeClickable(topRatedMoviesPage.topRatedMovies));
         topRatedMoviesPage.topRatedMovies.click();
     }
 
@@ -39,7 +42,7 @@ public class Top250StepDef {
         String expectedTitle = "IMDb";
         String actualTitle = Driver.get().getTitle();
 
-        Assert.assertEquals(expectedTitle,actualTitle);
+        Assert.assertEquals("verify the expected title",expectedTitle,actualTitle);
     }
 
     @When("the user clicks on the movie ranking {int} in the Top Rated Movies")
@@ -57,15 +60,14 @@ public class Top250StepDef {
 
         topRatedMoviesPage.getSelectedMovie(num).click();
 
-        Assert.assertEquals(expectedTitle,actualMovieTitleText);
+        Assert.assertEquals("verify the expected title",expectedTitle,actualMovieTitleText);
     }
 
-    @Then("the page should return the {string} selected by the user")
-    public void the_page_should_return_the_selected_by_the_user(String expectedTitleTextSelected) {
-
+    @Then("the user should land the {string} page successfully")
+    public void the_user_should_land_the_page_successfully(String expectedTitleTextSelected) {
         String actualMovieTitleTextSelected = topRatedMoviesPage.getMovieTitleText();
 
-        Assert.assertEquals(expectedTitleTextSelected,actualMovieTitleTextSelected);
+        Assert.assertEquals("verify the expected title of the movie page",expectedTitleTextSelected,actualMovieTitleTextSelected);
     }
 
     @When("the user sorts the movies by the {string}")
