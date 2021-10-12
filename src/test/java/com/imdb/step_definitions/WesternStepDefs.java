@@ -26,8 +26,6 @@ public class WesternStepDefs {
         BrowserUtils.waitFor(2);
         String actualSubtitle = westernPage.getSubtitle().getText();
 
-        //System.out.println("actualSubtitle = " + actualSubtitle);
-        //System.out.println("expectedSubtitle = " + expectedSubtitle);
         BrowserUtils.waitFor(1);
         Assert.assertEquals(expectedSubtitle,actualSubtitle);
     }
