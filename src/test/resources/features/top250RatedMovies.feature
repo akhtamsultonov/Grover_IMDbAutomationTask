@@ -16,7 +16,7 @@ Feature: Top Rated Movies
     Then the user should land on the Top Rated Movies successfully
     When the user clicks on the movie ranking <number> in the Top Rated Movies
     And the title is "<title>" and <number>
-    Then the page should return the "<movie>" selected by the user
+    Then the user should land the "<movie>" page successfully
     Examples:
       | number | title                    | movie                    |
       | 1      | The Shawshank Redemption | The Shawshank Redemption |
@@ -29,7 +29,7 @@ Feature: Top Rated Movies
     When the user sorts the movies by the "<options>"
     And the user clicks on the movie ranking <number> in the Top Rated Movies
     And the title is "<title>" and <number>
-    Then the page should return the "<movie>" selected by the user
+    Then the user should land the "<movie>" page successfully
     Examples:
       | options           | number | title                    | movie                    |
       | Ranking           | 1      | The Shawshank Redemption | The Shawshank Redemption |
