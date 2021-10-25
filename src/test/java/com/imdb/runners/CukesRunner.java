@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
         dryRun = false,         // * whether to run the actual code or just to check if you have missing steps  | dryRun = true/false
         tags = "@imdb"          // * which scenarios or features you want to run                                | tags = @something
                                  /*     it is another cucumber option, that allows you to run certain scenarios
-                                        You are labeling the scenario you want to run with @tag then in cukesRunner you are using same
+                                        You are labeling the scenario that you want to run with @tag then in cukesRunner you are using same
                                         tag to run that scenario    */
 )
 
